@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gemini Chatbot</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- =============================================
+       🔑 API KEY SETUP SCREEN
+       Shows on first visit if no API key is saved
+  ============================================= -->
+  <div class="setup-screen" id="setupScreen">
+    <div class="setup-card">
+      <div class="setup-icon">✦</div>
+      <h2>Welcome to Gemini Chat</h2>
+      <p>To get started, you need a free Google Gemini API key.</p>
+
+      <div class="steps">
+        <div class="step">
+          <span class="step-num">1</span>
+          <span>Go to <a href="https://aistudio.google.com/app/apikey" target="_blank">aistudio.google.com/app/apikey</a></span>
+        </div>
+        <div class="step">
+          <span class="step-num">2</span>
+          <span>Sign in with your Google account</span>
+        </div>
+        <div class="step">
+          <span class="step-num">3</span>
+          <span>Click <strong>"Create API Key"</strong> and copy it</span>
+        </div>
+        <div class="step">
+          <span class="step-num">4</span>
+          <span>Paste it below and click Start</span>
+        </div>
+      </div>
+
+      <input type="password" id="apiKeyInput" placeholder="Paste your API key here..." />
+      <div class="api-error" id="apiError"></div>
+      <button id="startBtn">Start Chatting →</button>
+      <p class="privacy-note">🔒 Your key is stored only in your browser (localStorage). It is never sent anywhere except directly to Google.</p>
+    </div>
+  </div>
+
+  <!-- =============================================
+       💬 MAIN CHAT UI
+  ============================================= -->
+  <div class="chat-wrapper" id="chatWrapper" style="display:none">
+    <header class="chat-header">
+      <div class="header-left">
+        <div class="avatar">✦</div>
+        <div>
+          <h1>Gemini Chat</h1>
+          <span class="status" id="status">Ready</span>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button class="icon-btn" id="clearBtn" title="Clear chat">🗑</button>
+        <button class="icon-btn" id="changeKeyBtn" title="Change API key">🔑</button>
+      </div>
+    </header>
+
+    <div class="chat-messages" id="chatMessages">
+      <div class="message bot-message">
+        <div class="bubble">Hey there! I'm powered by Gemini 2.5 Flash. Ask me anything! 👋</div>
+      </div>
+    </div>
+
+    <div class="chat-input-area">
+      <textarea id="userInput" placeholder="Type a message..." rows="1" autocomplete="off"></textarea>
+      <button id="sendBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <line x1="22" y1="2" x2="11" y2="13"></line>
+          <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
